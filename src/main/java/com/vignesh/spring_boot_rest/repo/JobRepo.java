@@ -28,7 +28,6 @@ public class JobRepo {
 
   public void addJob(JobPost jobPost) {
     jobs.add(jobPost);
-    System.out.println(jobs);
   }
 
   public List<JobPost> getAllJobs() {
@@ -44,5 +43,16 @@ public class JobRepo {
 
     return null;
 
+  }
+
+  public void updateJob(JobPost jobPost) {
+    for (JobPost job : jobs) {
+      if (job.getPostId() == jobPost.getPostId()) {
+        job.setPostProfile(jobPost.getPostProfile());
+        job.setPostDesc(jobPost.getPostDesc());
+        job.setReqExperience(jobPost.getReqExperience());
+        job.setPostTechStack(jobPost.getPostTechStack());
+      }
+    }
   }
 }
